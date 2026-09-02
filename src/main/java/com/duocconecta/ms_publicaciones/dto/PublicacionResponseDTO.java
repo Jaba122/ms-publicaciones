@@ -22,13 +22,8 @@ public record PublicacionResponseDTO(
 ) {
     public static PublicacionResponseDTO desdeEntidad(Publicacion p) {
         return new PublicacionResponseDTO(
-                p.getId(), 
-                p.getTitulo(), 
-                p.getDescripcion(), 
-                p.getAutorId(),
-                p.getCarrera(), 
-                p.getSede(), 
-                p.getTipo(), p.getTags(), p.getArchivos(),
+                p.getId(), p.getTitulo(), p.getDescripcion(), p.getAutorId(),
+                p.getCarrera(), p.getSede(), p.getTipo(), p.getTags(), p.getArchivos(),
                 p.getRepositorioId(), p.getFechaCreacion());
     }
 }

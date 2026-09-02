@@ -37,12 +37,12 @@ public class PublicacionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(PublicacionResponseDTO.desdeEntidad(creada));
     }
 
-        @GetMapping
+    @GetMapping
     public ResponseEntity<List<PublicacionResponseDTO>> listar(
             @RequestParam(required = false) String carrera,
             @RequestParam(required = false) TipoRecurso tipo,
-            @RequestParam(required = false) String sede) {List<PublicacionResponseDTO> resultado = 
-                publicacionService.listar(carrera, tipo, sede).stream()
+            @RequestParam(required = false) String sede) {
+        List<PublicacionResponseDTO> resultado = publicacionService.listar(carrera, tipo, sede).stream()
                 .map(PublicacionResponseDTO::desdeEntidad)
                 .toList();
         return ResponseEntity.ok(resultado);
