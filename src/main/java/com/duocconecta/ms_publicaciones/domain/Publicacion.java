@@ -31,13 +31,13 @@ public class Publicacion {
     @Column(length = 2000)
     private String descripcion;
 
-    /** oid del usuario autenticado (claim de Azure AD), no el nombre. */
     @Column(name = "autor_id", nullable = false, length = 100)
     private String autorId;
 
     @Column(nullable = false, length = 80)
     private String carrera;
 
+    /** Sede/campus donde cursa el autor (DuocUC tiene varias). */
     @Column(length = 80)
     private String sede;
 
@@ -51,13 +51,13 @@ public class Publicacion {
     @Column(name = "tag", length = 50)
     private List<String> tags = new ArrayList<>();
 
+    /** Reemplaza el antiguo urlAdjunto único: ahora se pueden adjuntar varios archivos. */
     @Builder.Default
     @ElementCollection
     @CollectionTable(name = "publicacion_archivos", joinColumns = @JoinColumn(name = "publicacion_id"))
     @Column(name = "url_archivo")
     private List<String> archivos = new ArrayList<>();
 
-    /** Vínculo opcional a un recurso del ms-repositorios (proyecto/repo compartido). */
     @Column(name = "repositorio_id")
     private UUID repositorioId;
 
@@ -69,4 +69,3 @@ public class Publicacion {
         this.fechaCreacion = Instant.now();
     }
 }
-
