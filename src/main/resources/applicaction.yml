@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-publicaciones
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/duocconecta_publicaciones
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/aab00822-2b0a-4637-9202-10a81c94c979/v2.0
+
+duocconecta:
+  dominio-institucional: duocuc.cl
+  seguridad:
+    habilitada: true
+  azure:
+    client-id: 91d97e6a-bc65-4349-b7a6-583fcfe48bb1
+  cors:
+    origenes-permitidos: http://localhost:5173
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
