@@ -24,7 +24,7 @@ public class PublicacionController {
 
     /**
      * El id del usuario autenticado lo deja disponible JwtUserContextFilter
-     * como atributo de request (ver cl.duocconecta.publicaciones.security).
+     * como atributo de request (ver com.duocconecta.publicaciones.security).
      */
     private String usuarioActual(HttpServletRequest request) {
         return (String) request.getAttribute("currentUserId");
